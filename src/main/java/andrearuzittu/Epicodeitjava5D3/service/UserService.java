@@ -40,6 +40,7 @@ public class UserService {
 			existingUser.setUsername(user.getUsername());
 			existingUser.setFullName(user.getFullName());
 			existingUser.setEmail(user.getEmail());
+			existingUser.setId(user.getId());
 
 			return userRepository.save(existingUser);
 		} else {
