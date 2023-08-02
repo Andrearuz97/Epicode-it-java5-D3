@@ -31,6 +31,7 @@ public class BuildingService {
 		if (existingBuilding != null) {
 			existingBuilding.setName(building.getName());
 			existingBuilding.setAddress(building.getAddress());
+			existingBuilding.setCity(building.getCity());
 
 			return buildingRepository.save(existingBuilding);
 		} else {
