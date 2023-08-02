@@ -29,7 +29,7 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping
-	public ResponseEntity<Page<Utente>> getAllUsers(@RequestParam(required = false, defaultValue = "10") int size,
+	public ResponseEntity<Page<Utente>> getAllUsers(@RequestParam(required = false, defaultValue = "100") int size,
 			@PageableDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
 
 		PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), size, pageable.getSort());
@@ -47,7 +47,7 @@ public class UserController {
 		}
 	}
 
-	@PostMapping("/{id}")
+	@PostMapping
 	public ResponseEntity<Utente> createUser(@RequestBody Utente user) {
 		Utente createdUser = userService.createUser(user);
 		return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
